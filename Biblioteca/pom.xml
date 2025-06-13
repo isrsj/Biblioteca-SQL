@@ -29,6 +29,10 @@
             <artifactId>hibernate-core</artifactId>
             <version>6.6.13.Final</version>
         </dependency>
-        
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE250</version>
+        </dependency>
     </dependencies>
 </project>

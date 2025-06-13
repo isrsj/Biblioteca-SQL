@@ -1,5 +1,5 @@
 create database Biblioteca
-
+--grant select, insert, update, delete  to userapela
 go
 
 use Biblioteca
