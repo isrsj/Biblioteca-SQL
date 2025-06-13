@@ -1,17 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.biblioteca.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Editorial {
+    
     @Id
     @GeneratedValue ( strategy=GenerationType.IDENTITY )
     @Column( name="id_editorial" )
@@ -20,10 +22,21 @@ public class Editorial {
     @Column( name="nombre", nullable=false, unique=true )
     private String nombre;
     
+    @OneToMany( mappedBy="editorial", cascade=CascadeType.ALL )
+    private Set<Libro> libros = new HashSet<>();
+    
     public Editorial () {}
 
     public Editorial(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -33,5 +46,16 @@ public class Editorial {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public Set<Libro> getLibros() {
+        return libros;
+    }
+
+    public void setLibros(Set<Libro> libros) {
+        this.libros = libros;
+    }
     
+    public void setLibro( Libro libro ) {
+        libros.add(libro);
+    }
 }

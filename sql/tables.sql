@@ -10,7 +10,7 @@ create table Editorial (
 	id_editorial int identity(1,1) primary key not null,
 	nombre varchar(50) not null unique
 )
-
+select * from Editorial
 
 create table Autor (
 	id_autor int identity(1,1) primary key not null,
